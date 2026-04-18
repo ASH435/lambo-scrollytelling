@@ -4,6 +4,7 @@ import Experience from './components/Experience'
 import Loader from './components/Loader'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { motion } from 'framer-motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -37,6 +38,21 @@ function App() {
       },
     })
 
+    // Image Parallax / Reveals
+    gsap.utils.toArray('.parallax-image').forEach((img: any) => {
+      gsap.to(img, {
+        y: -100,
+        scale: 1.1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: img,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      })
+    })
+
     return () => {
       lenis.destroy()
       gsap.ticker.remove(update)
@@ -55,7 +71,13 @@ function App() {
 
       <div className="content">
         <section className="section" id="act-1">
-          <div className="glass-panel">
+          <motion.div 
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="glass-panel"
+          >
             <div className="stats">V12 HYBRID · 1015 CV</div>
             <h1>The Core</h1>
             <p>
@@ -63,11 +85,25 @@ function App() {
               hybrid powertrain that merges internal combustion heritage 
               with electric velocity.
             </p>
-          </div>
+          </motion.div>
         </section>
 
+        <div className="image-portal">
+          <img 
+            src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&q=80&w=1200" 
+            className="parallax-image" 
+            alt="Mechanical Core" 
+          />
+        </div>
+
         <section className="section" id="act-2">
-          <div className="glass-panel">
+          <motion.div 
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="glass-panel"
+          >
             <div className="stats">DRAG COEFF · 0.23 CD</div>
             <h1>The Edge</h1>
             <p>
@@ -75,11 +111,25 @@ function App() {
               purity where every line serves a thermal and 
               dynamic purpose.
             </p>
-          </div>
+          </motion.div>
         </section>
 
+        <div className="image-portal">
+          <img 
+            src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=1200" 
+            className="parallax-image" 
+            alt="Aerodynamics" 
+          />
+        </div>
+
         <section className="section" id="act-3">
-          <div className="glass-panel">
+          <motion.div 
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="glass-panel"
+          >
             <div className="stats">MONOFUSELAGE · CARBON</div>
             <h1>The Frame</h1>
             <p>
@@ -87,11 +137,25 @@ function App() {
               braided with structural integrity to form a 
               weightless yet invincible chassis.
             </p>
-          </div>
+          </motion.div>
         </section>
 
+        <div className="image-portal">
+          <img 
+            src="https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&q=80&w=1200" 
+            className="parallax-image" 
+            alt="Chassis" 
+          />
+        </div>
+
         <section className="section" id="act-4">
-          <div className="glass-panel">
+          <motion.div 
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="glass-panel"
+          >
             <div className="stats">ICONIC · SINCE 1963</div>
             <h1>The Brand</h1>
             <p>
@@ -99,7 +163,7 @@ function App() {
               transformed into a digital silhouette, 
               defining the future of speed.
             </p>
-          </div>
+          </motion.div>
         </section>
       </div>
     </main>

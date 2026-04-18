@@ -1,4 +1,4 @@
-import { useThree } from '@react-three/fiber'
+import { useThree, useFrame } from '@react-three/fiber'
 import { useRef, useLayoutEffect } from 'react'
 import * as THREE from 'three'
 import gsap from 'gsap'
@@ -10,12 +10,20 @@ import Structure from './acts/Structure'
 import Silhouette from './acts/Silhouette'
 
 const Scene = () => {
-  const { camera } = useThree()
+  const { camera, mouse } = useThree()
   const sceneRef = useRef<THREE.Group>(null!)
   const engineRef = useRef<THREE.Group>(null!)
   const aeroRef = useRef<THREE.Group>(null!)
   const structureRef = useRef<THREE.Group>(null!)
   const silhouetteRef = useRef<THREE.Group>(null!)
+
+  // Mouse tracking for subtle parallax
+  useFrame(() => {
+    // Smoothly follow mouse
+    camera.position.x += (mouse.x * 2 - camera.position.x) * 0.05
+    camera.position.y += (mouse.y * 2 - camera.position.y) * 0.05
+    camera.lookAt(0, 0, 0)
+  })
 
   useLayoutEffect(() => {
     const tl = gsap.timeline({
