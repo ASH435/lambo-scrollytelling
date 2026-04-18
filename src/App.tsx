@@ -2,12 +2,10 @@ import { Canvas } from '@react-three/fiber'
 import { ScrollControls } from '@react-three/drei'
 import { Suspense } from 'react'
 import Experience from './components/Experience'
-import Loader from './components/Loader'
 
 function App() {
   return (
-    <div style={{ width: '100vw', height: '100vh', background: '#000' }}>
-      <Loader />
+    <div style={{ width: '100vw', height: '100vh', background: '#050505' }}>
       <div className="noise" />
       
       {/* Minimal HUD */}
@@ -24,7 +22,7 @@ function App() {
         gl={{ antialias: false, powerPreference: "high-performance" }}
         dpr={[1, 2]}
       >
-        <Suspense fallback={null}>
+        <Suspense fallback={<color attach="background" args={['#202020']} />}>
           <ScrollControls pages={6} damping={0.1}>
             <Experience />
           </ScrollControls>
