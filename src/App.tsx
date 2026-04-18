@@ -164,6 +164,38 @@ function App() {
               defining the future of speed.
             </p>
           </motion.div>
+          <motion.img 
+            src="/images/car1.png"
+            className="floating-car car-1"
+            initial={{ x: 200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+          />
+        </section>
+
+        <div className="image-portal">
+          <img 
+            src="/images/car2.png" 
+            className="parallax-image contain" 
+            alt="Lamborghini Perspective" 
+          />
+        </div>
+
+        <section className="section" id="act-5">
+          <motion.div 
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="glass-panel full-width"
+          >
+            <div className="stats">ULTIMATE · PERFORMANCE</div>
+            <h1>The Legacy</h1>
+            <p>
+              Experience the pinnacle of automotive engineering. 
+              Built for those who refuse to follow.
+            </p>
+            <button className="cta-button">EXPLORE MORE</button>
+          </motion.div>
         </section>
       </div>
     </main>
