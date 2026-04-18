@@ -215,4 +215,8 @@ p {
   .glass-panel {
     padding: 2rem;
   }
+
+  .image-portal {
+    height: 50dvh;
+  }
 }

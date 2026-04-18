@@ -90,7 +90,7 @@ function App() {
 
         <div className="image-portal">
           <img 
-            src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&q=80&w=1200" 
+            src="/images/img1.png" 
             className="parallax-image" 
             alt="Mechanical Core" 
           />
@@ -116,7 +116,7 @@ function App() {
 
         <div className="image-portal">
           <img 
-            src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=1200" 
+            src="/images/img2.png" 
             className="parallax-image" 
             alt="Aerodynamics" 
           />
@@ -142,7 +142,7 @@ function App() {
 
         <div className="image-portal">
           <img 
-            src="https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&q=80&w=1200" 
+            src="/images/img3.png" 
             className="parallax-image" 
             alt="Chassis" 
           />
