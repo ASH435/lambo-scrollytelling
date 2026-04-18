@@ -11,9 +11,8 @@ function App() {
   const lenisRef = useRef<Lenis | null>(null)
 
   useEffect(() => {
-    // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     })
 
@@ -24,8 +23,6 @@ function App() {
     }
 
     gsap.ticker.add(update)
-
-    // Sync ScrollTrigger with Lenis
     lenis.on('scroll', ScrollTrigger.update)
 
     // Progress bar animation
@@ -36,7 +33,7 @@ function App() {
         trigger: '.content',
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 0.3,
+        scrub: 0.1,
       },
     })
 
@@ -49,37 +46,60 @@ function App() {
   return (
     <main>
       <Loader />
-      {/* Visual Noise Overlay */}
       <div className="noise" />
-
-      {/* Progress Bar */}
       <div className="progress-bar" />
 
-      {/* 3D Scene Layer */}
       <div className="experience">
         <Experience />
       </div>
 
-      {/* HTML Content Layer */}
       <div className="content">
-        <section id="act-1">
-          <h1>The Core</h1>
-          <p>Driven by the hybrid heart. Abstract power deconstructed into pure mechanical energy.</p>
+        <section className="section" id="act-1">
+          <div className="glass-panel">
+            <div className="stats">V12 HYBRID · 1015 CV</div>
+            <h1>The Core</h1>
+            <p>
+              The deconstructed heart of innovation. A high-performance 
+              hybrid powertrain that merges internal combustion heritage 
+              with electric velocity.
+            </p>
+          </div>
         </section>
 
-        <section id="act-2">
-          <h1>The Edge</h1>
-          <p>Precision redefined. Every plane designed to slice through air with zero resistance.</p>
+        <section className="section" id="act-2">
+          <div className="glass-panel">
+            <div className="stats">DRAG COEFF · 0.23 CD</div>
+            <h1>The Edge</h1>
+            <p>
+              Precision geometry cutting through the void. Aerodynamic 
+              purity where every line serves a thermal and 
+              dynamic purpose.
+            </p>
+          </div>
         </section>
 
-        <section id="act-3">
-          <h1>The Frame</h1>
-          <p>Uncompromising structure. Carbon fiber lattice strength meeting technical mastery.</p>
+        <section className="section" id="act-3">
+          <div className="glass-panel">
+            <div className="stats">MONOFUSELAGE · CARBON</div>
+            <h1>The Frame</h1>
+            <p>
+              An uncompromising structural lattice. Carbon fiber 
+              braided with structural integrity to form a 
+              weightless yet invincible chassis.
+            </p>
+          </div>
         </section>
 
-        <section id="act-4">
-          <h1>The Brand</h1>
-          <p>Legacy converged. The iconic silhouette of a legend, born from innovation.</p>
+        <section className="section" id="act-4">
+          <div className="glass-panel">
+            <div className="stats">ICONIC · SINCE 1963</div>
+            <h1>The Brand</h1>
+            <p>
+              The convergence of geometry and soul. A legacy 
+              transformed into a digital silhouette, 
+              defining the future of speed.
+            </p>
+          </div>
         </section>
       </div>
     </main>
