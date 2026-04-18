@@ -17,7 +17,7 @@ const Experience = () => {
         <Scene />
         <Environment preset="city" />
         
-        <EffectComposer disableNormalPass>
+        <EffectComposer {...({ disableNormalPass: true } as any)}>
           <Bloom 
             intensity={1.5} 
             luminanceThreshold={0.9} 

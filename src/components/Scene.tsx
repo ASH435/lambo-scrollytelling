@@ -54,9 +54,7 @@ const Scene = () => {
     tl.to(camera.rotation, { x: 0, y: 0, duration: 1 }, '<')
 
     return () => {
-      if (ScrollTrigger.getById('main-scroll')) {
-        ScrollTrigger.getById('main-scroll').kill()
-      }
+      ScrollTrigger.getById('main-scroll')?.kill()
     }
   }, [camera])
 
